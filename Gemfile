@@ -13,6 +13,9 @@ gem 'puma'
 gem 'pundit'
 gem 'rolify'
 gem 'devise'
+gem 'bourbon'
+gem 'refills'
+gem 'neat'
 
 group :development do
   gem 'capistrano',         require: false
