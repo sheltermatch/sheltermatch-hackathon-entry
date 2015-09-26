@@ -250,6 +250,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pry
   puma
   pundit
   rails (= 4.2.4)

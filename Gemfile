@@ -32,4 +32,5 @@ group :development do
   gem 'spring'
   gem 'guard'
   gem 'guard-livereload'
+  gem 'pry'
 end
