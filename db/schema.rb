@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926222125) do
+ActiveRecord::Schema.define(version: 20150926235310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,13 +66,11 @@ ActiveRecord::Schema.define(version: 20150926222125) do
     t.integer  "meal_id"
     t.integer  "address_id"
     t.integer  "gender_id"
-    t.integer  "user_id"
   end
 
   add_index "shelters", ["address_id"], name: "index_shelters_on_address_id", using: :btree
   add_index "shelters", ["gender_id"], name: "index_shelters_on_gender_id", using: :btree
   add_index "shelters", ["meal_id"], name: "index_shelters_on_meal_id", using: :btree
-  add_index "shelters", ["user_id"], name: "index_shelters_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -87,10 +85,12 @@ ActiveRecord::Schema.define(version: 20150926222125) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "shelter_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["shelter_id"], name: "index_users_on_shelter_id", using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
@@ -102,5 +102,5 @@ ActiveRecord::Schema.define(version: 20150926222125) do
   add_foreign_key "shelters", "addresses"
   add_foreign_key "shelters", "genders"
   add_foreign_key "shelters", "meals"
-  add_foreign_key "shelters", "users"
+  add_foreign_key "users", "shelters"
 end
