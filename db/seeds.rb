@@ -7,3 +7,5 @@ Address.destroy_all
 User.new(email: "admin@shelterme.org",
          password: "password",
          password_confirmation: "password").save!(validate: false)
+
+User.first[1].add_roll :admin
