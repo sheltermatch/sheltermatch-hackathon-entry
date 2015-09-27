@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 20150927023220) do
     t.string   "phone",                       null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "meal_id"
     t.integer  "address_id"
     t.integer  "gender_id"
+    t.integer  "meal_id"
   end
 
   add_index "shelters", ["address_id"], name: "index_shelters_on_address_id", using: :btree

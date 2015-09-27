@@ -10,16 +10,16 @@
           <%= f.text_field :description %>
 
           <%= f.label :beds %>
-          <%= f.text_area :beds %>
+          <%= f.number_field :beds %>
 
           <%= f.label :fee %>
           <%= f.check_box :fee %><br>
 
           <%= f.label :age_min %>
-          <%= f.text_field :age_min %>
+          <%= f.number_field :age_min %>
 
           <%= f.label :age_max %>
-          <%= f.text_field :age_max %>
+          <%= f.number_field :age_max %>
 
           <%= f.fields_for :gender_id do |gender| %>
             <%= gender.label :male %>
