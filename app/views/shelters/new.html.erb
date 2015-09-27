@@ -21,6 +21,7 @@
           <%= f.label :age_max %>
           <%= f.number_field :age_max %>
 
+          <ul>
           <%= f.fields_for :gender_id do |gender| %>
             <%= gender.label :male %>
             <%= gender.check_box :male %>
@@ -29,7 +30,9 @@
             <%= gender.label :other %>
             <%= gender.check_box :other %>
           <% end %>
+          </ul>
 
+          <ul>
           <%= f.fields_for :meal_id do |meal| %>
             <%= meal.label :breakfast %>
             <%= meal.check_box :breakfast %>
@@ -38,10 +41,12 @@
             <%= meal.label :dinner %>
             <%= meal.check_box :dinner %>
           <% end %>
+          </ul>
 
           <%= f.label :phone %>
           <%= f.telephone_field :phone %>
 
+          <ul>
           <%= f.fields_for :address_id do |address| %>
             <%= address.label :street %>
             <%= address.text_field :street %>
@@ -52,6 +57,7 @@
             <%= address.label :zip %>
             <%= address.text_field :zip %>
           <% end %>
+          </ul>
 
 
 
@@ -60,4 +66,7 @@
       </div>
     </div>
   </div>
+  <br />
+  <br />
+  <br />
 <article>

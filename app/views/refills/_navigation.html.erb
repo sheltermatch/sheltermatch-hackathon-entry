@@ -40,6 +40,7 @@
       <% if user_signed_in? %>
         <%= link_to "edit profile", edit_user_registration_path, class: "sign-up" %>
         <%= link_to "logout", destroy_user_session_path, method: :delete, class: "login" %>
+        <%= link_to "new shelter", new_shelter_path, class: "login" %>
       <% else %>
         <%= link_to "sign up", new_user_registration_path, class: "sign-up" %>
         <%= link_to "login", new_user_session_path, class: "login" %>
