@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Shelterme</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Shelterme</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= render partial: "refills/navigation" %>
+    <%= render partial: "refills/navigation" %>
 
-<section>
-<%= yield %>
-</section>
+    <section>
 
-<%= render partial: "refills/footer_2" %>
+      <%= notice %>
+      <%= alert %>
+      <br />
+      <%= yield %>
 
-</body>
+    </section>
+
+    <%= render partial: "refills/footer_2" %>
+
+  </body>
 </html>
