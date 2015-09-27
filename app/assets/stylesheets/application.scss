@@ -23,6 +23,7 @@
 @import "font-awesome";
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import "refills/tables";
+@import "refills/flex-boxes";
 
 body {
   padding: 0px;
@@ -46,4 +47,8 @@ article.cards {
 .logo-text {
   font-family: 'Poiret One', cursive;
   font-size: 200%;
+}
+
+.about {
+  font-family: 'Poiret One', cursive;
 }
