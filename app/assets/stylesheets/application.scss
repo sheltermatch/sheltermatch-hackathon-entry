@@ -37,7 +37,7 @@ article.cards {
   @include shift(3);
 }
 
-logo, .logo:link, .logo:hover, .logo:active .logo:visited {
+.logo {
   color: white;
 }
 
