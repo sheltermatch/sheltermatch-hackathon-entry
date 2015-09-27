@@ -14,7 +14,8 @@ Shelter.new(name: "Joshua Ministries Shelter",
             fee: false,
             age_min: 18,
             age_max: 50,
-            phone: "(773) 533-0254").save!(validate: false)
+            phone: "(773) 533-0254",
+            address: "138 N LaSalle Ave. Chicago, IL 60626").save!(validate: false)
 
 Shelter.new(name: "Interfaith House",
             description: "Injured homeless adults" ,
@@ -22,7 +23,8 @@ Shelter.new(name: "Interfaith House",
             fee: true,
             age_min: 18,
             age_max: 0,
-            phone: "(773) 533-6013").save!(validate: false)
+            phone: "(773) 533-6013",
+            address: "341 S State St. Chicago, IL 60601").save!(validate: false)
 
 Shelter.new(name: "Primo Center for Women & Children",
             description: "None" ,
@@ -30,7 +32,8 @@ Shelter.new(name: "Primo Center for Women & Children",
             fee: false,
             age_min: 0,
             age_max: 0,
-            phone: "(773) 722-0544").save!(validate: false)
+            phone: "(773) 722-0544",
+            address: "1937 W Damen Ave. Chicago, IL 60624").save!(validate: false)
 
 Shelter.new(name: "Mercy Home",
             description: "for boys & girls" ,
@@ -38,4 +41,5 @@ Shelter.new(name: "Mercy Home",
             fee: false,
             age_min: 0,
             age_max: 18,
-            phone: "(773) 722-0544").save!(validate: false)
+            phone: "(773) 722-0544",
+            address: "183 W Monroe Ave. Chicago, IL 60612").save!(validate: false)
