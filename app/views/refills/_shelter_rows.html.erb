@@ -2,8 +2,8 @@
   <td><%= shelter.name %></td>
   <td><%= shelter.description %></td>
   <td><%= shelter.beds %></td>
-  <td><%= shelter.fee %></td>
-  <td><%= shelter.age_min %> - <%= shelter.age_max %></td>
+  <td><%if shelter.fee %>None<% else %>Call for info<% end %></td>
+  <td><%if shelter.age_min > 0 %><%= shelter.age_min %> - <%= shelter.age_max %><% else %>No restrictions<% end %></td>
   <td>Female</td>
   <td>Breakfast <br/> Dinner</td>
   <td><%= shelter.phone %></td>

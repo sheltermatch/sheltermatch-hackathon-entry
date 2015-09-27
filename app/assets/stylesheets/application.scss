@@ -35,6 +35,10 @@ section {
   @include outer-container;
 }
 
+table {
+  table-layout: auto; 
+}
+
 article.cards {
   @include span-columns(6);
   @include shift(3);
