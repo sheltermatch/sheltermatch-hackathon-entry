@@ -14,6 +14,8 @@
     </tr>
   </thead>
   <tbody>
-    <%= render partial: "refills/shelter_rows" %>
+    <% @shelters.each do |shelter| %>
+      <%= render partial: "refills/shelter_rows", locals: { shelter: shelter } %>
+    <% end %>
   </tbody>
 </table>
