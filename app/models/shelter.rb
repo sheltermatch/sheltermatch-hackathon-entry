@@ -4,5 +4,5 @@ class Shelter < ActiveRecord::Base
   has_one :address
   has_many :users
 
-  accepts_nested_attributes_for :address_id, :meal_id, :gender_id
+  accepts_nested_attributes_for :address, :meal, :gender
 end
