@@ -1,0 +1,32 @@
+<article>
+  <div class="cards">
+    <div class="card">
+      <div class="card-copy">
+        <%= form_for @shelter do |f| %>
+          <%= f.label :name %>
+          <%= f.text_area :name %>
+
+          <%= f.label :description %>
+          <%= f.text_area :description %>
+
+          <%= f.label :beds %>
+          <%= f.text_area :beds %>
+
+          <%= f.label :fee %>
+          <%= f.check_box :fee %>
+
+          <%= f.label :age_min %>
+          <%= f.text_area :age_min %>
+
+          <%= f.label :age_max %>
+          <%= f.text_area :age_max %>
+
+          <%= f.label :phone %>
+          <%= f.telephone_field :phone %>
+
+          <%= f.submit "Create Shelter" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<article>
