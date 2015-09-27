@@ -13,7 +13,7 @@ class SheltersController < ApplicationController
     @shelter = Shelter.create(shelter_params)
 
     if @shelter.save
-      redirect_to shelter_path, notice: "Created shelter"
+      redirect_to shelters_path, notice: "Created shelter"
     else
       render :new, notice: "Error creating new shelter"
     end
@@ -22,6 +22,6 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:user)
+    params.require(:shelter).permit(:name, :description, :beds, :fee, :age_min, :age_max, :phone)
   end
 end
