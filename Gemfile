@@ -16,6 +16,7 @@ gem 'devise'
 gem 'bourbon'
 gem 'refills'
 gem 'neat'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'capistrano',         require: false

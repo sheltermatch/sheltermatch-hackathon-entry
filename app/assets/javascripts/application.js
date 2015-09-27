@@ -14,3 +14,33 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require fullscreen/jquery.fullscreen.js
+
+// The plugin sets the $.support.fullscreen flag:
+
+if($.support.fullscreen){
+
+	// ...
+	// Show your full screen button here
+	// ...
+	console.log("Fullscreen supported!");
+
+	$(document).ready(function(){
+		$("#fsButton").on("click", function(event) {
+
+			console.log("fsButton clicked!");
+
+			$('#fsContent').fullScreen();
+
+			// You can also pass a hash with properties:
+			// $('#content').fullScreen({
+			//  'background'    : '#111',
+			//  'callback'      : function(isFullScreen){
+			//      // ...
+			//      // Do some cleaning up here
+			//      // ...
+			//  }
+			// });
+		});
+	});
+}

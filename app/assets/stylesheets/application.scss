@@ -20,6 +20,8 @@
 @import "refills/cards";
 @import "refills/search-bar";
 @import "refills/tables";
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
 
 body {
   padding: 0px;
@@ -33,4 +35,13 @@ section {
 article.cards {
   @include span-columns(6);
   @include shift(3);
+}
+
+logo, .logo:link, .logo:hover, .logo:active .logo:visited {
+  color: white;
+}
+
+.logo-text {
+  font-family: 'Poiret One', cursive;
+  font-size: 200%;
 }
