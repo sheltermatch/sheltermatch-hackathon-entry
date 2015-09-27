@@ -1,8 +1,20 @@
 class SheltersController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :update]
+  before_action :get_shelter, only: [:edit, :update]
 
   def index
     @shelters = Shelter.all
+  end
+
+  def edit
+  end
+
+  def update
+    if @shelter.update(shelter_params)
+      redirect_to edit_shelter_path(@shelter), notice: "Beds Updated"
+    else
+      redirect_to edit_shelter_path(@shelter), notice: "Error. Did not update"
+    end
   end
 
   def new
@@ -15,6 +27,7 @@ class SheltersController < ApplicationController
 
   def create
     @shelter = Shelter.create(shelter_params)
+    @shelter.users << current_user 
 
     if @shelter.save
       redirect_to shelters_path, notice: "Created shelter"
@@ -24,6 +37,10 @@ class SheltersController < ApplicationController
   end
 
   private
+
+  def get_shelter
+    @shelter = current_user.shelter  
+  end
 
   def shelter_params
     params.require(:shelter).permit(:name, 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :shelters, only: [:index, :new, :create]
+  resources :shelters, only: [:index, :new, :create, :edit, :update]
 
   root "home#index"
 end
