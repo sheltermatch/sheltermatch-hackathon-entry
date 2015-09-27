@@ -3,9 +3,17 @@
   <td><%= shelter.description %></td>
   <td><%= shelter.beds %></td>
   <td><%if shelter.fee %>None<% else %>Call for info<% end %></td>
-  <td><%if shelter.age_min > 0 %><%= shelter.age_min %> - <%= shelter.age_max %><% else %>No restrictions<% end %></td>
+  <td><%if shelter.age_min > 0 && shelter.age_max == 0 %>
+        <%= shelter.age_min %> and up 
+      <% elsif shelter.age_min == 0 && shelter.age_max == 0 %>
+        No restrictions
+       <% elsif shelter.age_min == 0 && shelter.age_max > 0 %>
+         <%= shelter.age_max %> and under 
+       <% elsif shelter.age_min > 0 && shelter.age_max > 0 %>
+         <%= shelter.age_min %> to <%= shelter.age_max %>
+       <% end %></td>
   <td>Female</td>
-  <td>Breakfast <br/> Dinner</td>
+  <td>Breakfast, Dinner</td>
   <td><%= shelter.phone %></td>
   <td>123 W Fubar Ave. Chicago, Il</td>
 </tr>
