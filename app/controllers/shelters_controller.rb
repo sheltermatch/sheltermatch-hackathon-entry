@@ -4,6 +4,12 @@ class SheltersController < ApplicationController
 
   def index
     @shelters = Shelter.all
+
+    if params[:search]
+      @shelters = Shelter.search(params[:search]).order("beds ASC")
+    else
+      @shelters = Shelter.all.order("beds ASC")
+    end
   end
 
   def edit

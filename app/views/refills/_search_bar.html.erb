@@ -1,6 +1,6 @@
-<form class="search-bar" role="search">
-  <input type="search" placeholder="100 S State St Chicago, IL 60603" />
-  <button type="submit">
+<%= form_tag(shelters_path, :method => "get", id: "search-form", class: "search-bar") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "100 S State St Chicago, IL 60603" %>
+  <button type = "submit">
     <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
   </button>
-</form>
+<% end %>
