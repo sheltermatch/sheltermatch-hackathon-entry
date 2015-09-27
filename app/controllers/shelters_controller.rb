@@ -2,7 +2,7 @@ class SheltersController < ApplicationController
   #before_action :authenticate_user!
 
   def index
-
+    @shelters = Shelter.all
   end
 
   def new
