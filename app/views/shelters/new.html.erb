@@ -4,10 +4,10 @@
       <div class="card-copy">
         <%= form_for @shelter do |f| %>
           <%= f.label :name %>
-          <%= f.text_area :name %>
+          <%= f.text_field :name %>
 
           <%= f.label :description %>
-          <%= f.text_area :description %>
+          <%= f.text_field :description %>
 
           <%= f.label :beds %>
           <%= f.text_area :beds %>
@@ -16,13 +16,45 @@
           <%= f.check_box :fee %><br>
 
           <%= f.label :age_min %>
-          <%= f.text_area :age_min %>
+          <%= f.text_field :age_min %>
 
           <%= f.label :age_max %>
-          <%= f.text_area :age_max %>
+          <%= f.text_field :age_max %>
+
+          <%= f.fields_for :gender_id do |gender| %>
+            <%= gender.label :male %>
+            <%= gender.check_box :male %>
+            <%= gender.label :female %>
+            <%= gender.check_box :female %>
+            <%= gender.label :other %>
+            <%= gender.check_box :other %>
+          <% end %>
+
+<br>
+          <%= f.fields_for :meal_id do |meal| %>
+            <%= meal.label :breakfast %>
+            <%= meal.check_box :breakfast %>
+            <%= meal.label :lunch %>
+            <%= meal.check_box :lunch %>
+            <%= meal.label :dinner %>
+            <%= meal.check_box :dinner %>
+          <% end %>
 
           <%= f.label :phone %>
           <%= f.telephone_field :phone %>
+
+          <%= f.fields_for :address_id do |address| %>
+            <%= address.label :street %>
+            <%= address.text_field :street %>
+            <%= address.label :city %>
+            <%= address.text_field :city %>
+            <%= address.label :state %>
+            <%= address.text_field :state %>
+            <%= address.label :zip %>
+            <%= address.text_field :zip %>
+          <% end %>
+
+
 
           <%= f.submit "Create Shelter" %>
         <% end %>
