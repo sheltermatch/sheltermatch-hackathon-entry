@@ -11,7 +11,12 @@
 <%= render partial: "refills/navigation" %>
 
 <section>
-<%= yield %>
+  
+  <%= notice %>
+  <%= alert %>
+  <br>
+  <%= yield %>
+  
 </section>
 
 <%= render partial: "refills/footer_2" %>
