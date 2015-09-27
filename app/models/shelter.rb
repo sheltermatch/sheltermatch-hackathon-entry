@@ -1,7 +1,7 @@
 class Shelter < ActiveRecord::Base
-  has_many :meal
-  has_many :gender
-  has_many :address
+  has_one :meal, autosave: true
+  has_one :gender, autosave: true
+  has_one :address, autosave: true
   has_many :users
 
   accepts_nested_attributes_for :address, :meal, :gender

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927023220) do
+ActiveRecord::Schema.define(version: 20150927062254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20150927023220) do
     t.integer  "zip",         null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "shelter_id"
   end
+
+  add_index "addresses", ["shelter_id"], name: "index_addresses_on_shelter_id", using: :btree
 
   create_table "genders", force: :cascade do |t|
     t.boolean  "male",       default: false, null: false
@@ -32,7 +35,10 @@ ActiveRecord::Schema.define(version: 20150927023220) do
     t.boolean  "other",      default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "shelter_id"
   end
+
+  add_index "genders", ["shelter_id"], name: "index_genders_on_shelter_id", using: :btree
 
   create_table "meals", force: :cascade do |t|
     t.boolean  "breakfast",  default: false, null: false
@@ -40,7 +46,10 @@ ActiveRecord::Schema.define(version: 20150927023220) do
     t.boolean  "dinner",     default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "shelter_id"
   end
+
+  add_index "meals", ["shelter_id"], name: "index_meals_on_shelter_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -63,14 +72,7 @@ ActiveRecord::Schema.define(version: 20150927023220) do
     t.string   "phone",                       null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "address_id"
-    t.integer  "gender_id"
-    t.integer  "meal_id"
   end
-
-  add_index "shelters", ["address_id"], name: "index_shelters_on_address_id", using: :btree
-  add_index "shelters", ["gender_id"], name: "index_shelters_on_gender_id", using: :btree
-  add_index "shelters", ["meal_id"], name: "index_shelters_on_meal_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -103,8 +105,8 @@ ActiveRecord::Schema.define(version: 20150927023220) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
-  add_foreign_key "shelters", "addresses"
-  add_foreign_key "shelters", "genders"
-  add_foreign_key "shelters", "meals"
+  add_foreign_key "addresses", "shelters"
+  add_foreign_key "genders", "shelters"
+  add_foreign_key "meals", "shelters"
   add_foreign_key "users", "shelters"
 end

@@ -7,13 +7,14 @@ class SheltersController < ApplicationController
 
   def new
     @shelter = Shelter.new
-    @shelter.address.new
-    @shelter.meal.new
-    @shelter.gender.new
+
+    @shelter.build_meal
+    @shelter.build_gender
+    @shelter.build_address
   end
 
   def create
-    @shelter = Shelter.new(shelter_params)
+    @shelter = Shelter.create(shelter_params)
 
     if @shelter.save
       redirect_to shelters_path, notice: "Created shelter"
@@ -31,9 +32,10 @@ class SheltersController < ApplicationController
                                     :fee,
                                     :age_min, 
                                     :age_max, 
-                                    :phone,
-                                    meals_attributes: [:id, :breakfast, :lunch, :dinner],
-                                    address_attributes: [:id, :street, :city, :state, :zip],
-                                    gender_attributes: [:id, :male, :female, :other])
+                                    :phone).tap do |whitelist|
+                                      whitelist[:meal] = params[:shelter][:meal]
+                                      whitelist[:address] = params[:shelter][:address]
+                                      whitelist[:gender] = params[:shelter][:gender]
+                                    end
   end
 end
