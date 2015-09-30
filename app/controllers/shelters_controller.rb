@@ -28,7 +28,6 @@ class SheltersController < ApplicationController
 
     @shelter.build_meal
     @shelter.build_gender
-    @shelter.build_address
   end
 
   def create

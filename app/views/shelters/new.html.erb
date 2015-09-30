@@ -46,20 +46,8 @@
           <%= f.label :phone %>
           <%= f.telephone_field :phone %>
 
-          <ul>
-          <%= f.fields_for :address_id do |address| %>
-            <%= address.label :street %>
-            <%= address.text_field :street %>
-            <%= address.label :city %>
-            <%= address.text_field :city %>
-            <%= address.label :state %>
-            <%= address.text_field :state %>
-            <%= address.label :zip %>
-            <%= address.text_field :zip %>
-          <% end %>
-          </ul>
-
-
+          <%= f.label :address %>
+          <%= f.text_field :address %>
 
           <%= f.submit "Create Shelter" %>
         <% end %>

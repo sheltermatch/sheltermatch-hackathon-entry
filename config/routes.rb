@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :shelters, only: [:index, :new, :create, :edit, :update]
 
   root "home#index"
+  get "about/index"
 end
