@@ -18,29 +18,14 @@
 
 // The plugin sets the $.support.fullscreen flag:
 
-if($.support.fullscreen){
+var ready;
+ready = function() {
+  if ($.support.fullscreen) {
+    $("#fsButton").on("click", function(event) {
+      $('#fsContent').fullScreen();
+    });
+  }
+};
 
-	// ...
-	// Show your full screen button here
-	// ...
-	console.log("Fullscreen supported!");
-
-	$(document).ready(function(){
-		$("#fsButton").on("click", function(event) {
-
-			console.log("fsButton clicked!");
-
-			$('#fsContent').fullScreen();
-
-			// You can also pass a hash with properties:
-			// $('#content').fullScreen({
-			//  'background'    : '#111',
-			//  'callback'      : function(isFullScreen){
-			//      // ...
-			//      // Do some cleaning up here
-			//      // ...
-			//  }
-			// });
-		});
-	});
-}
+$(document).ready(ready);
+$(document).on("page:load", ready);
